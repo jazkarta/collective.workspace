@@ -20,11 +20,11 @@
   </a>
 
   <form method="GET" tal:attributes="action context/absolute_url">
-    <table class="listing"
+    <table class="listing datatables" data-buttons="[]" data-paging="0" data-dom="t"
            tal:condition="view/workspace/members">
         <thead>
           <tr>
-            <th tal:condition="view/table_actions">
+            <th tal:condition="view/table_actions" data-orderable="0" class="nosort">
               <input class="select-toggle" type="checkbox" />
             </th>
             <th tal:repeat="widget view/widgets/values"
