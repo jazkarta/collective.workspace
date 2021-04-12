@@ -1,6 +1,7 @@
 from AccessControl import ClassSecurityInfo
 from App.class_init import InitializeClass
 from OFS.Cache import Cacheable
+from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PlonePAS.interfaces.group import IGroupIntrospection
@@ -271,7 +272,7 @@ class WorkspaceRoles(object):
 
     def __init__(self, context):
         self.workspace = IWorkspace(context)
-        uid = context.UID()
+        uid = IUUID(context, alternate=None)
         if uid is None:
             uid = 'unassigned-uid'
         self.uid = uid
